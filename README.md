@@ -21,12 +21,12 @@ Python packaging managers like `pip`:
 
 ## Usage
 
-To register an OME-Zarr label, run the `omero label register` using the path to the
-label group and the ID of the image to link the label to:
+To register an OME-Zarr label, run the `omero label register` using the absolute
+path to the label group and the ID of the image to link the label to:
 
     omero label register /path/to/image.zarr/0/labels/my_label <image_id>
 
-A successful registrationg will return the ID of the new object as `Roi:<roi_id>`.
+A successful registration will return the ID of the new object as `Roi:<roi_id>`.
 
 The properties of a label image can be retrieved by calling the `omero label get` command
 using the ID of the ROI:
