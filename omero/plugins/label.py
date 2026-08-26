@@ -1,6 +1,6 @@
 # encoding: utf-8
 #
-# Copyright (c) 2025 Glencoe Software, Inc. All rights reserved.
+# Copyright (c) 2026 Glencoe Software, Inc. All rights reserved.
 #
 # This software is distributed under the terms described by the LICENCE file
 # you can find at the root of the distribution bundle.
@@ -68,7 +68,7 @@ class LabelControl(BaseControl):
             help="Label property to retrieve")
 
         update = parser.add(
-            sub, self.update, help="Update a label uri")
+            sub, self.update, help="Update a label URI")
         update.add_argument(
             "label_id", type=int,
             help="ID of the ROI object associated with the label")

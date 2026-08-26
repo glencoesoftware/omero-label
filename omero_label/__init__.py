@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2025 Glencoe Software, Inc.  All rights reserved.
+# Copyright (c) 2026 Glencoe Software, Inc.  All rights reserved.
 #
 # This software is distributed under the terms described by the LICENCE.txt
 # file you can find at the root of the distribution bundle.  If the file is
