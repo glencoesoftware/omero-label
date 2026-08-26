@@ -13,12 +13,9 @@ import sys
 from omero.cli import BaseControl
 from omero.cli import CLI
 from omero.model import ExternalInfoI
-from omero.model import ImageI
-from omero.model import RoiI
-from omero.rtypes import rstring
 from omero.rtypes import unwrap
 
-from omero_label import create_mask, create_external_info, \
+from omero_label import create_label, create_external_info, \
                         query_pixels, query_mask
 
 
@@ -86,15 +83,9 @@ class LabelControl(BaseControl):
         if pixels is None:
             self.ctx.die(334, f"No image {args.image_id} found")
 
-        roi = RoiI()
-        roi.setName(rstring(args.name))
-        mask = create_mask(0, 0, pixels.sizeX.val, pixels.sizeY.val, args.name)
-        mask.details.externalInfo = create_external_info(
-            args.uri,
-            NGFF_ENTITY_TYPE,
-            NGFF_ENTITY_ID)
-        roi.addShape(mask)
-        roi.setImage(ImageI(args.image_id, False))
+        roi = create_label(
+            args.name, args.uri, pixels.sizeX.val, pixels.sizeY.val,
+            args.image_id)
 
         roi = session.getUpdateService().saveAndReturnObject(
             roi, {"omero.group": str(pixels.details.group.id.val)})
