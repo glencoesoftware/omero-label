@@ -28,6 +28,16 @@ path to the label group and the ID of the image to link the label to:
 
 A successful registration will return the ID of the new object as `Roi:<roi_id>`.
 
+To register an OME-Zarr label hosted on object storage, pass the S3 URL as
+defined in [omero-zarr-pixel-buffer](https://github.com/glencoesoftware/omero-zarr-pixel-buffer#usage)
+to the `omero label register` command:
+
+    omero label register s3://<endpoint>/<bucket>/path/to/image.zarr/0/labels/my_label <image_id>
+
+The path of the S3 URL must be percent-encoded as defined in
+[RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). S3 paths containing  literal
+percent-encoded octets are not supported.
+
 The properties of a label image can be retrieved by calling the `omero label get` command
 using the ID of the ROI:
 
